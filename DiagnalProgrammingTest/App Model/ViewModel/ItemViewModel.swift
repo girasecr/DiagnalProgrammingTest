@@ -12,6 +12,7 @@ class ItemViewModel {
     // MARK: - Properties
     private var pageModel: Page?
     private var loadMorePage = 1
+    private let loadMoreTotalPage = 3
     var updateUI: () -> Void = { }
     var navTitle: String = ""
     var itemArray: [Content] = []
@@ -29,7 +30,7 @@ class ItemViewModel {
     }
     
     func loadMorePageData() {
-        if loadMorePage < Constants.loadMoreTotalPage {
+        if loadMorePage < loadMoreTotalPage {
             loadMorePage += 1
             loadApiData()
         }

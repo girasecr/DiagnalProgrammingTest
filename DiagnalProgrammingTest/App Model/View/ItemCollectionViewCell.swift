@@ -9,6 +9,7 @@
 import UIKit
 
 class ItemCollectionViewCell: UICollectionViewCell {
+    // MARK: - Properties/Constant
     struct CONSTANT {
         static let identifier = "ItemCollectionViewCell"
     }

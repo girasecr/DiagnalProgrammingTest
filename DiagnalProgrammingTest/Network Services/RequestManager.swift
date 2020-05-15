@@ -17,7 +17,7 @@ class RequestManager {
         return Singleton.instance
     }
     
-    // MARK: - Load API Data from the Local JSON file instead of going to the Back-End
+    // MARK: - Load API Data from the Local JSON file
     func getAPIData(forResource: String, ofType: String, completion: @escaping(Data?, Error?) -> Void) {
         let testBundle = Bundle(for: type(of: self))
         if let path = testBundle.path(forResource: forResource, ofType: ofType) {

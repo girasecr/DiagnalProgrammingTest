@@ -16,7 +16,7 @@ struct PageModel: Codable {
 struct Page: Codable {
     let title, totalContentItems, pageNum, pageSize: String
     let contentItems: ContentItems
-
+    
     enum CodingKeys: String, CodingKey {
         case title
         case totalContentItems = "total-content-items"
@@ -35,7 +35,7 @@ struct ContentItems: Codable {
 struct Content: Codable {
     let name: String
     let posterImage: String
-
+    
     enum CodingKeys: String, CodingKey {
         case name
         case posterImage = "poster-image"
