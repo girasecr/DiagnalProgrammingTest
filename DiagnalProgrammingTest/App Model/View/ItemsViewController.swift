@@ -64,7 +64,7 @@ extension ItemsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionWidth = collectionView.bounds.width
         let collectionHeight = collectionView.bounds.height
-        return CGSize(width: collectionWidth/3 - 10 , height: collectionHeight/3 - 10)
+        return CGSize(width: collectionWidth/3 - 10, height: collectionHeight/3 - 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
