@@ -12,7 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        decorateNavigationBar()
         return true
+    }
+    
+    func decorateNavigationBar() {
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = .white
+        navigationBarAppearace.barTintColor = .red
+        navigationBarAppearace.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        if let myImage = UIImage(named: "nav_bar.png"){
+            navigationBarAppearace.setBackgroundImage(myImage, for: .default)
+        }
     }
     
     // MARK: UISceneSession Lifecycle
@@ -29,3 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+// MARK: Update Status Bar style
+extension UINavigationController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return topViewController?.preferredStatusBarStyle ?? .default
+    }
+}
