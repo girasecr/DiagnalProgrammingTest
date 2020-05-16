@@ -11,14 +11,18 @@ import UIKit
 class ItemsViewController: UIViewController {
     // MARK: - Properties/Constant
     @IBOutlet weak var itemCollectionView: UICollectionView!
+    @IBOutlet weak var itemSearchBar: UISearchBar!
     @IBOutlet weak var searchBarHeight: NSLayoutConstraint!
     
-    var viewModel: ItemViewModel?
-    private let itemsPerRow: CGFloat = 3
-    private let lineSpace: CGFloat = 45
-    private let itemInternSpace: CGFloat = 5
-    private let defaultSearchBarHeight: CGFloat = 44
+    struct CONSTANT {
+        static let itemsPerRow: CGFloat = 3
+        static let lineSpace: CGFloat = 40
+        static let itemInternSpace: CGFloat = 10
+        static let defaultSearchBarHeight: CGFloat = 44
+    }
+    
     private var isSearch = false
+    var viewModel: ItemViewModel?
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -49,7 +53,13 @@ class ItemsViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func didTapSearchButton(_ sender: Any) {
-        searchBarHeight.constant = searchBarHeight.constant == 0 ? defaultSearchBarHeight : 0
+        if itemSearchBar.isFirstResponder {
+            itemSearchBar.text = ""
+            itemSearchBar.resignFirstResponder()
+            itemCollectionView.reloadData()
+        }
+        
+        searchBarHeight.constant = searchBarHeight.constant == 0 ? CONSTANT.defaultSearchBarHeight : 0
         //Added animation to constraint
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
@@ -76,6 +86,7 @@ extension ItemsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        itemSearchBar.resignFirstResponder()
         let tableHeight = itemCollectionView.bounds.size.height
         let contentHeight = itemCollectionView.contentSize.height
         let insetHeight = itemCollectionView.contentInset.bottom
@@ -94,15 +105,15 @@ extension ItemsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionWidth = collectionView.bounds.width
         let collectionHeight = collectionView.bounds.height
-        return CGSize(width: collectionWidth/itemsPerRow - itemInternSpace, height: collectionHeight/itemsPerRow - lineSpace)
+        return CGSize(width: collectionWidth/CONSTANT.itemsPerRow - CONSTANT.itemInternSpace, height: collectionHeight/CONSTANT.itemsPerRow - CONSTANT.lineSpace)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return lineSpace
+        return CONSTANT.lineSpace
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return itemInternSpace
+        return CONSTANT.itemInternSpace
     }
 }
 
@@ -118,8 +129,12 @@ extension ItemsViewController: UISearchBarDelegate {
         isSearch = false;
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.didTapSearchButton(UIButton())
+        isSearch = false;
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         if searchText.count == 0 {
             isSearch = false;
             self.itemCollectionView.reloadData()

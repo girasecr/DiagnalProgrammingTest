@@ -12,7 +12,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         decorateNavigationBar()
         return true
     }
@@ -20,11 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func decorateNavigationBar() {
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = .white
-        navigationBarAppearace.barTintColor = .red
         navigationBarAppearace.titleTextAttributes = [.foregroundColor: UIColor.white]
         
-        if let myImage = UIImage(named: "nav_bar.png"){
-            navigationBarAppearace.setBackgroundImage(myImage, for: .default)
+        if let navImage = UIImage(named: "nav_bar.png"){
+          navigationBarAppearace.setBackgroundImage(navImage.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch), for: .default)
         }
     }
     

@@ -32,28 +32,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="blackTranslucent" searchBarStyle="minimal" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="NOs-qL-Ahc">
+                            <searchBar contentMode="redraw" barStyle="blackTranslucent" searchBarStyle="minimal" placeholder="Search..." showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NOs-qL-Ahc">
                                 <rect key="frame" x="0.0" y="88" width="414" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="2Ju-wQ-va0"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="F9p-fu-cZo"/>
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ueo-bG-iHr">
-                                <rect key="frame" x="10" y="98" width="394" height="764"/>
+                                <rect key="frame" x="10" y="88" width="394" height="774"/>
                                 <color key="backgroundColor" red="0.086274509803921567" green="0.090196078431372548" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PHn-dq-eLY">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCollectionViewCell" id="Y8h-Ag-IgS" customClass="ItemCollectionViewCell" customModule="DiagnalProgrammingTest" customModuleProvider="target">
-                                        <rect key="frame" x="97" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="97" y="10" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="djf-5r-dRx">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -101,7 +102,7 @@
                         <constraints>
                             <constraint firstItem="NOs-qL-Ahc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="U5q-Rl-1Ps"/>
                             <constraint firstItem="NOs-qL-Ahc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ubh-tY-y6o"/>
-                            <constraint firstItem="Ueo-bG-iHr" firstAttribute="top" secondItem="NOs-qL-Ahc" secondAttribute="bottom" constant="10" id="W92-8V-5zB"/>
+                            <constraint firstItem="Ueo-bG-iHr" firstAttribute="top" secondItem="NOs-qL-Ahc" secondAttribute="bottom" id="W92-8V-5zB"/>
                             <constraint firstItem="Ueo-bG-iHr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mVv-T5-cNg"/>
                             <constraint firstItem="Ueo-bG-iHr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qQQ-Xp-J4E"/>
                             <constraint firstItem="NOs-qL-Ahc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tPj-6q-Udb"/>
@@ -118,6 +119,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="itemCollectionView" destination="Ueo-bG-iHr" id="WlS-O6-1RJ"/>
+                        <outlet property="itemSearchBar" destination="NOs-qL-Ahc" id="Q3j-La-jNd"/>
                         <outlet property="searchBarHeight" destination="2Ju-wQ-va0" id="2YY-5C-bkp"/>
                     </connections>
                 </viewController>
