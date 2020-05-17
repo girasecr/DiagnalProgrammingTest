@@ -20,6 +20,12 @@ Added Unit test cases.
 1. Used Collectionview to show three column data with vertical scroll.
 2. Managed its size from collectionview delegate flow layout and from storyboard.
 
+# App installation process
+1. Zip file contains .ipa file to install on devices including all type of device. or
+2. Open code in xcode and run to device, or
+3. Use github link to download code and runt it into your device or simulator.
+
+
 # Followed Programing Test Rules
 - Create mobile version of content Listing page shown in Exports folder using native iOS Development Tools.
 
