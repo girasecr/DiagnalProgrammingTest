@@ -16,7 +16,11 @@ Used Request Manager Class to retive data from API page data using bundle
 # Test Cases
 Added Unit test cases.
 
-# Followed Programing Test Guidlines
+# Used Terms
+1. Used Collectionview to show three column data with vertical scroll.
+2. Managed its size from collectionview delegate flow layout and from storyboard.
+
+# Followed Programing Test Rules
 - Create mobile version of content Listing page shown in Exports folder using native iOS Development Tools.
 
 - This listing page contains a page title and a three column vertically scrolling grid which is not horizontally scrollable
