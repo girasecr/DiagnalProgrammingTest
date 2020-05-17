@@ -16,8 +16,8 @@ class ItemsViewController: UIViewController {
     
     struct CONSTANT {
         static let itemsPerRow: CGFloat = 3
-        static let lineSpace: CGFloat = 40
-        static let itemInternSpace: CGFloat = 10
+        static let lineSpace: CGFloat = 30
+        static let itemInternSpace: CGFloat = 7
         static let defaultSearchBarHeight: CGFloat = 44
     }
     
